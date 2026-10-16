@@ -10,6 +10,14 @@ Not ready for an official launch. The Balogun stalls are samples. Payments, ride
 
 POSH9JA EXPORT AND LOGISTICS is listed at `/posh9ja` as the founder’s company, with the office, email, and phone numbers the business already publishes. It is not verified, and it is not a Balogun stall.
 
+## POSH9JA Group ecosystem
+
+OJA is an approved ecosystem partner within the POSH9JA Group of Companies, alongside POSH9JA EXPORT & LOGISTICS and LagosGo. The LagosGo app may promote OJA as a marketplace pilot, but it must not imply that OJA is a live, verified, payment-enabled or delivery-enabled marketplace.
+
+OJA remains independently operated at the code and data level. Merchant verification, payments, ordering, delivery, and settlement must only be advertised as available after their separate implementation and end-to-end verification. Do not automatically share LagosGo passenger or driver data with OJA.
+
+See [ECOSYSTEM_PARTNERSHIP.md](./ECOSYSTEM_PARTNERSHIP.md) and the [LagosGo repository](https://github.com/EmeraldArcher1/LagosGo).
+
 ## What works
 
 - Sign up and log in for a business, separate from the preview account.
