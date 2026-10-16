@@ -25,8 +25,26 @@ jobs:
         run: npm ci
       - name: Type-check
         run: npm run typecheck
-      - name: Check authentication invariants
-        run: npm run check:auth
+      - name: Start the wrapped dev server for auth invariant check
+        shell: bash
+        run: |
+          npm run dev > /tmp/oja-dev.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8080/__app-env > /dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/oja-dev.log
+            echo "OJA dev server did not expose /__app-env within 30 seconds." >&2
+            exit 1
+          fi
+          npm run check:auth -- --dev-url http://127.0.0.1:8080
       - name: Run automated tests
         run: npm test
       - name: Run lint
